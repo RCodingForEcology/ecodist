@@ -1,0 +1,45 @@
+---
+output:
+  rmarkdown::pdf_document:
+geometry: margin=1in
+---
+
+# Table 1. Dominant species (see Figure 2).
+
+```{r table01, echo=FALSE, include=TRUE}
+
+    lf <- data.frame(
+                     Lifeform = c("f", "f_s", "g", "moss", "s"),
+                     LongLifeform = c("Forb", "Forb/shrub", "Graminoid", "Moss", "Shrub"))
+
+    lh <- data.frame(LifeHistory = c("a", "m", "p"), 
+                     LongLifeHistory = c("Annual", "Mixed", "Perennial"))
+
+    ###
+
+    tablespecies <- species[veg.dom, ]
+    # tablespecies <- subset(tablespecies, !(Kartez %in% c("ASTERACEAE", "BROMU")))
+
+    tablespecies <- merge(tablespecies, lf, all.x = TRUE)
+    tablespecies <- merge(tablespecies, lh, all.x = TRUE)
+
+
+    tablespecies <- tablespecies[, colnames(tablespecies) %in% c("Kartez", "Family", "Genus", "Species",
+    "LongLifeform", "LongLifeHistory", "inVF")]
+    colnames(tablespecies) <- c("Code", "Family", "Genus", "Species", "Lifeform", "LifeHistory")
+
+    tablespecies[is.na(tablespecies)] <- "-"
+
+
+    tablespecies <- tablespecies[order(tablespecies$Code), ]
+    rownames(tablespecies) <- NULL
+
+    # write.table(tablespecies, file = file.path("..", figdir, "table01_species.csv"), row.names = FALSE, sep = ",")
+
+
+    knitr::kable(tablespecies, format = "pipe")
+
+    rm(lf, lh, tablespecies)
+
+```
+

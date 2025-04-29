@@ -1,0 +1,52 @@
+---
+title: "Table 2"
+date: "`r Sys.Date()`"
+author: "Sarah Goslee"
+output:
+  rmarkdown::pdf_document:
+geometry: margin=1in
+---
+
+# Mantel results
+
+```{r mantel1}
+
+	# a. Linear relationships
+	
+    mprint(veg.mantel, veg.mantel.labels)
+    mprint(env.mantel, "Space ~ Elev")
+
+	# b. Monotonic (rank-order) relationships
+	
+    mprint(veg.mantel.rank, veg.mantel.rank.labels)
+    mprint(env.mantel.rank, "ranked Space ~ Elev")
+
+```
+
+
+# MRM results
+
+```{r mrm}
+
+    mrmprint(veg.bc.mrm)
+
+    mrmprint(veg.bc.mrm.rank)
+
+```
+
+
+# Group results
+
+```{r grps}
+
+	# a. Mantel tests of group difference
+	
+    mprint(gradient.mantel, gradient.mantel.labels)
+    mprint(gradient.mantel.rank, gradient.mantel.rank.labels)
+    
+    # b. mgroup() test of group difference
+    
+	cat(paste(capture.output(print(veg.bc.mg, digits = 4)), collapse = "\n"), "\n")
+
+
+```
