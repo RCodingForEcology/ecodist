@@ -4,6 +4,8 @@ Chapter II.4, The ecodist package for dissimilarity-based analysis of ecological
 
 This code was written for the R package [ecodist](https://cran.r-project.org/web/packages/ecodist/index.html) written by Sarah Goslee and Dean Urban (version 2.1.3, 2023-10-30). 
 
+The R file ChapterII.4_ecodist.R contains all the code from the chapter, which calls the files below as needed.
+
 Files should be run in order:
 
   - 0.functions.R - pretty plotting functions for ecodist output (may be folded into a later version of the package).
