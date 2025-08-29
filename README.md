@@ -1,6 +1,6 @@
 These code files create the analyses and figures for the forthcoming Springer UseR! volume R Coding for Ecology, edited by Duccio Rocchini.
 
-Chapter II.7, The ecodist package for dissimilarity-based analysis of ecological data, by Sarah Goslee.
+Chapter II.4, The ecodist package for dissimilarity-based analysis of ecological data, by Sarah Goslee.
 
 This code was written for the R package [ecodist](https://cran.r-project.org/web/packages/ecodist/index.html) written by Sarah Goslee and Dean Urban (version 2.1.3, 2023-10-30). 
 
